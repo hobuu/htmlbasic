@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#div_1{
+			width: 10%;
+			height: 1000px;
+			float: left;
+		}
+		#div_2{
+			width: 80%;
+			height: 1000px;
+			float: left;			
+		}
+		#div_3{
+			width: 10%;
+			height: 1000px;
+			float: left;			
+		}
+
+		#div_tong{
+			width: 100%;
+			height: 1000px;
+			/*background: black;*/
+			position: relative;
+		}
+		#div_vien_trai1{
+			width: 20%;
+			height: 100%;
+			background: black;
+			float: left;
+			/*background-repeat: no-repeat;*/
+			align-content:bottom;
+		}
+		#div_vien_trai2{
+			width: 5%;
+			height: 100%;
+			background: red;
+			float: left;
+		}
+		#div_noi_dung{
+			width: 60%;
+			height: 100%;
+			/*background: pink;*/
+			float: left;
+			background-image:url('./bai1_files/sua1.gif');
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		#div_noi_dung > .tieu_de{
+			width: 100%;
+			height: 5%;
+			font-size:+300%;
+			color: orange;
+			margin-left: 5px;
+			/*margin-top: 20px;*/
+		}
+		#div_noi_dung > .noi_dung{
+			width: 85%;
+			height: 80%;
+			margin-left: 40px;
+			/*background: green;*/
+
+		}
+
+		#div_vien_phai{
+			width: 15%;
+			height: 70%;
+			position: absolute;
+			right: 2%;
+			top: 2%;
+		}
+	</style>
+</head>
+<body>
+	<div id="div_1"></div>
+	<div id="div_2">
+	<div id="div_tong">
+		<div id="div_vien_trai1">
+			<img src="./bai1_files/sanho.gif" style="position: absolute; width:30%; height:100%;">
+		</div>
+		<div id="div_vien_trai2">
+			<img src="./bai1_files/soc.jpg"; style="width: 100%; height:100%">
+		</div>
+		<div id="div_noi_dung">
+			<div class="tieu_de">
+				THAM GIA CLB
+			</div>
+			<div class="noi_dung">		
+				<br>				
+				Quý độc giả hãy điền đủ thông tin để tham gia phát triển Câu lạc bộ ngày càng vững mạnh hơn.<br>
+				<br>
+				<br>
+				<table style="background-color: lightgreen" width="90%" height="100%">
+					<form>
+						<tr>
+							<td>
+								Họ và tên:
+							</td>
+							<td>
+								<input type="text" size="50">*
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Địa chỉ:
+							</td>
+							<td>
+								<input type="text" size="50">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Email:
+							</td>
+							<td>
+								<input type="Email" size="50">*
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Điện thoại:
+							</td>
+							<td>
+								<input type="numberphone">*
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Ngày sinh:
+							</td>
+							<td>
+								<input type="date">*
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Đề tài:
+							</td>
+							<td>
+								<select>
+									<option>Tìm hiểu sứa biển</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Nhóm
+							</td>
+							<td>
+								<input type="radio" name="nhom" value="nghien_cuu">Nghiên cứu <br>
+								<input type="radio" name="nhom" value="hai_ngu">Hải ngư <br>
+								<input type="radio" name="nhom" value="vien_duong">Viễn dương <br>
+								<input type="radio" name="nhom" value="my_thuat">Mỹ thuật <br>
+								<input type="radio" name="nhom" value="thuc_pham">Thực phẩm <br>
+								<input type="radio" name="nhom" value="sinh_vien">Sinh viên <br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Gửi hình:
+							</td>
+							<td>
+								<input type="file">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Tài liệu:
+							</td>
+							<td>
+								<input type="checkbox">Sinh vật biển <br>
+								<input type="checkbox">Các loại sứa biển<br>
+								<input type="checkbox">San hô <br>
+								<input type="checkbox">Môi trường biển <br>
+								<input type="checkbox">Khí hậu <br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="Tham gia">
+							</td>
+							<td>
+								<input type="reset" value="Xoá thông tin">
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div>
+
+		</div>
+
+
+		<div id="div_vien_phai">
+			<img src="./bai1_files/nhom1a.jpg" width="100%"><br>
+			<img src="./bai1_files/nhom1b.jpg" width="100%"><br>
+			<img src="./bai1_files/nhom1c.jpg" width="100%"><br>
+			<img src="./bai1_files/nhom1d.jpg" width="100%"><br>
+		</div>
+	</div>
+	</div>
+	<div id="div_3">
+	</div>
+</body>
+</html>
