@@ -1,0 +1,167 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#header{
+	background-color: black;
+	height: 100px;
+	width: 100%;
+}
+.logo{
+	float: left;
+}
+.menu{
+	float: left;
+	position: relative;
+	top: 20px;
+}
+.menu ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;	
+}
+.menu ul > li{
+	float: left;
+	width: 150px;
+	height: 55px;
+	text-align: center;
+	display: block;
+	position: relative;
+	padding-bottom: 0;
+}
+.menu ul > li > ul{
+	display: none;			
+}
+.menu ul > li:hover ul[id="the_loai"]{
+	display: block;
+	position: absolute;
+	background: black;
+	width: 450px;
+	height: 150px;
+	float: left;
+	margin-top: 23px;
+}
+.menu ul > li:hover ul[id="nam"]{
+	display: block;
+	position: absolute;
+	background: black;
+	width: 300px;
+	height: 400px;
+	float: left;
+	margin-top: 23px;
+}
+.menu ul > li:hover ul[id="quoc_gia"]{
+	display: block;
+	position: absolute;
+	background: black;
+	width: 450px;
+	height: 150px;
+	float: left;
+	margin-top: 23px;
+}
+.menu  hover{
+	background-color: gray;	
+}
+.menu ul > li > ul > li{
+	border: none;
+}
+a{
+	text-decoration: none;
+	color: white;
+	display: block;
+	text-align: center;
+}
+input{
+	background-color: black;
+	color: white;
+	border: 2px solid white;
+	height: 30px;
+	width: 170px;
+	position: absolute;
+	right: 90px;
+	top: 10px;
+}
+button{
+	position: absolute;
+	right: 50px;
+	top: 10px;
+}
+#content{
+	width: 100%;
+	height: 1500px;
+}
+#ads{
+	background-color: gray;
+	width: 5%;
+	height: 1500px;
+	float: left;
+}
+#main{
+	background-color: gray;
+	width: 90%;
+	height: 1500px;
+	float: left;
+	color: orange;
+	font-size: 40px;
+}
+.list1{
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex: 1;
+}.list2{
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex: 1;
+}.list3{
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	flex: 1;
+}
+img{
+	width: 400px;
+	height: 200px;
+}
+
+.logo > img{
+	width: 200px;
+	height: 50px;
+}
+button > img{
+	width: 30px;
+	height: 30px;
+}
+
+#footer{
+	background-color: black;
+	width: 100%;
+	height: 200px;
+	position: relative;
+	bottom: 0px;
+	color: white;
+	display: flex;
+	align-content: stretch;
+	justify-content: space-around;
+}
+div > ul{
+	list-style-type: none;
+}
+#footer > .logo{
+	float: left;
+}
+div{
+	float: left;
+}
+
+.zoom {
+  overflow: hidden;
+  display: inline-block;
+}
+.zoom img {
+  transition: 0.8s;
+}
+.zoom:hover img {
+  transform: scale(1.2, 1.2);
+}
