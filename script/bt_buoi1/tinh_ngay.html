@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tính số ngày trong tháng</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#box{
+			width: 450px;
+			height: 120px;
+			background-color: lightpink;
+			text-align: center;
+		}
+		.title{
+			height: 30px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id=box>
+		<div class=title>
+			TÍNH NGÀY TRONG THÁNG			
+		</div>
+		<div>
+			<form action="">
+				<table>
+					<tr>
+						<td>
+							Tháng/năm:
+						</td>
+						<td>
+							<input type="nubmer" id="thang" placeholder="nhập tháng">
+							/
+							<input type="nubmer" id="nam" placeholder="nhập năm">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button type="button" onclick="tinh_ngay()">Tính số ngày</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" id="ket_qua" placeholder="Kết quả" readonly="" size="30">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function tinh_ngay(){
+			let nam = parseInt(document.getElementById('nam').value);
+			let thang = parseInt(document.getElementById('thang').value);
+			let ngay = 0;
+			switch(thang){
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					ngay=31;
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					ngay=30;
+					break;
+				case 2:
+					if ( ((nam%400)==0) || ((nam%4==0) && (nam%100!=0))) {
+						ngay=29;}
+					else {ngay=28;
+					}
+				};
+			let ket_qua = `Tháng ${thang} năm ${nam} có ${ngay} ngày `;
+					document.getElementById('ket_qua').value = ket_qua;
+			}
+	</script>
+</body>
+</html>

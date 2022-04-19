@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tính năm âm lịch</title>
+	<meta charset="utf-8">
+	
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Square+Peg&display=swap');
+		#box{
+			width: 400px;
+			height: 100px;
+			background-color: lightblue;
+		}
+		.title{
+			width: 100%;
+			height: 50px;
+			background-color: blue;
+			font-size: 30px;
+			text-align: center;
+			color: white;
+			font-family: 'Open Sans', sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	function tinh_nam_am(){
+		let nam = parseInt(document.getElementById('nam').value);
+		let nam_can = '';
+		let nam_chi = '';
+
+		switch((nam-3)%10){
+			case 0: nam_can = "Quý";
+				break;
+			case 1: nam_can = "Giáp";
+				break;
+			case 2: nam_can = "Ất";
+				break;
+			case 3: nam_can = "Bính";
+				break;
+			case 4: nam_can = "Đinh";
+				break;
+			case 5: nam_can = "Mậu";
+				break;
+			case 6: nam_can = "Kỷ";
+				break;
+			case 7: nam_can = "Canh";
+				break;
+			case 8: nam_can = "Tân";
+				break;
+			case 9: nam_can = "Nhâm";
+				break;
+		};
+		switch ((nam-3)%12){
+			case 0: nam_chi = "Hợi";
+				break;
+			case 1: nam_chi = "Tý";
+				break;
+			case 2: nam_chi = "Sửu";
+				break;
+			case 3: nam_chi = "Dần";
+				break;
+			case 4: nam_chi = "Mão";
+				break;
+			case 5: nam_chi = "Thìn";
+				break;
+			case 6: nam_chi = "Tỵ";
+				break;
+			case 7: nam_chi = "Ngọ";
+				break;
+			case 8: nam_chi = "Mùi";
+				break;
+			case 9: nam_chi = "Thân";
+				break;
+			case 10: nam_chi = "Dậu";
+				break;
+			case 11: nam_chi = "Tuất";
+				break;
+		};
+
+		let nam_am_lich = (`${nam_can} ${nam_chi}`);
+		document.getElementById('nam_am_lich').value=nam_am_lich;
+	}
+	</script>
+	<div id=box>
+		<div class="title">
+			TÍNH NĂM ÂM LỊCH
+		</div>
+		<form action="" id="form">
+		<table>
+			<tr>
+				<td>
+					Năm dương lịch
+				</td>
+				<td></td>
+				<td>
+					Năm âm lịch
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="number" id="nam" placeholder="nhập năm dương lịch">
+				</td>
+				<td>
+					<button type="button" onclick="tinh_nam_am()">=></button>
+				</td>
+				<td>
+					<input type="text" id="nam_am_lich" readonly>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</body>
+</html>
