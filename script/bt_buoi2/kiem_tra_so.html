@@ -31,8 +31,8 @@
 			<br>
 			<dir id="chan_le" style="height: 20px"></dir>
 			<dir id="nguyen_to" style="height: 20px"></dir>
-			Dãy số ::
-			<input type="text" id="day_so">
+			Dãy số :
+			<div id="day_so"></div>
 			<br>
 			Đã nhập:
 			<input type="number" id="so_nhap" readonly="">số
@@ -91,7 +91,7 @@
 				day_so=day_so+i+' '};
 			}
 			document.getElementById('day_so').value=day_so;
-		
+			document.getElementById('day_so').innerHTML=day_so;
 		}
 	</script>
 </body>
