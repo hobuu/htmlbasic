@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Toán</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#box{
+			width: 600px;
+			height: 300px;
+			background-color: lightpink;
+		}
+		.title{
+			width: 100%;
+			height: 50px;
+			background-color: pink;
+			color: purple;
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id=box>
+		<div class="title">
+			Mathematics
+		</div>
+		<form>
+			Nhập số bất kì:
+			<input type="number" id="so">
+			<button type="button" id="btn" onclick="calculator()">nhập số</button>
+			<br>
+			<dir id="chan_le" style="height: 20px"></dir>
+			<dir id="nguyen_to" style="height: 20px"></dir>
+			Dãy số ::
+			<input type="text" id="day_so">
+			<br>
+			Đã nhập:
+			<input type="number" id="so_nhap" readonly="">số
+		</form>
+	</div>
+	<script type="text/javascript">		
+		let btn = document.getElementById("so");
+        btn.addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+            document.getElementById("btn").click();
+            }
+        });
+
+		let so_nhap = 0;
+		function calculator(){
+		let so = parseInt(document.getElementById('so').value);	
+		so_nhap=so_nhap+1;
+		document.getElementById('so_nhap').value=so_nhap;
+		if ((so%2)==0){
+			document.getElementById('chan_le').innerHTML='Số nhập vào là số chẵn';
+		}
+			else{
+				document.getElementById('chan_le').innerHTML='Số nhập vào là số lẻ';
+		 	}
+
+		let nguyen_to=1;
+		if (so>0){
+			if (so<2){
+				nguyen_to=0;
+			}
+			else{
+				for (let i = 2 ; i < so - 1 ; i++ ){
+					if(so%i == 0){
+						nguyen_to=0;
+						break;
+					}
+				}
+			}
+		}
+		else{			
+			nguyen_to=0;
+		}
+		if (nguyen_to==0){
+			document.getElementById('nguyen_to').innerHTML='Số nhập vào không phải là số nguyên tố';
+		}else{
+			document.getElementById('nguyen_to').innerHTML='Số nhập vào là số nguyên tố';
+		}
+
+		let day_so='';
+		if (so>=1){		 
+			for(i=1;i<=so;i++){
+				day_so=day_so+i+' '};
+			}
+		else{
+			for(i=so;i<=-1;i++){
+				day_so=day_so+i+' '};
+			}
+			document.getElementById('day_so').value=day_so;
+		
+		}
+	</script>
+</body>
+</html>
