@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+	<title>Bài tập mảng 1</title>
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+		body{
+			background-color: lightgray;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 25px;
+		}
+		#box{
+			height: 800px;
+			width: 800px;
+			background-color: #df678c;
+			margin:80px auto;
+			border-radius: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id='box'>
+		<p style="font-size: 70px">MẢNG</p>
+		<form>
+			Nhập số vào mảng:
+			<input type="number" id="num">
+			<button type="button" id="btn" onclick="nhap()"><b>nhập số</b></button>
+			<button type="button" id="btn_cal" onclick="cal()"><b>Kiểm tra dãy số</b></button>
+		</form>
+		Các số trong mảng:
+		<p id="mang_so"></p>
+		Các số chẵn:
+		<span id="so_chan"></span><br>
+		Các số lẻ:
+		<span id="so_le"></span><br>
+		Các số nguyên tố:
+		<span id="so_nguyen_to"></span><br>
+		Số lớn nhất trong mảng:
+		<span id="max"></span><br>
+		Tổng các số trong mang:
+		<span id="sum"></span>
+	</div>
+
+
+	<script type="text/javascript">
+		//hàm ấn enter
+	/*	let	btn= document.getElementById('num');
+			btn.addEventListener("keydown",(function(ent) {
+				if (ent.keyCode==13)
+					document.getElementById('btn').click();
+			});)*/
+
+		let mang_so=[];
+		//nhập chuỗi số
+		function nhap(){
+			let num = parseInt(document.getElementById('num').value);
+			mang_so.push(num);
+			document.getElementById('num').value='';
+		
+			//in chuỗi số
+			let chuoi_so='';
+			for (i=0;i<mang_so.length;i++){
+				chuoi_so+= mang_so[i]+' ';
+			}
+			document.getElementById('mang_so').innerHTML=chuoi_so;
+		}
+		//kiểm tra dãy số
+			//kiểm tra số chẵn
+		function cal(){
+			let so_chan = mang_so.filter(
+			function(num){
+				return (num%2===0)});
+			so_chan.forEach(function(num){ document.getElementById('so_chan').innerHTML+=num+' '})
+			//kiểm tra số lẻ
+			let so_le = mang_so.filter(
+				function(num){
+					return (num%2!==0)});
+			so_le.forEach(function(num){ document.getElementById('so_le').innerHTML+=num+' '})
+			//kiểm tra số nguyên tố
+			let nguyen_to = mang_so.filter(
+				function(num){
+					if (num<2){
+						return false;
+					}
+					for (let i=2;i<num-1;i++){
+						if(num % i == 0){
+							return false;
+						}
+					}
+					return true;
+				})
+			nguyen_to.forEach(function(num){ document.getElementById('so_nguyen_to').innerHTML+=num+' '})
+
+			//tìm số lớn nhất
+			let max=0;
+			for (i=0;i<mang_so.length; i++){
+				if (mang_so[i]>max){
+					max=mang_so[i];
+				}
+			}
+			max=document.getElementById('max').innerHTML=max;
+
+			//tính tổng dãy
+			let sum=0;
+			for (i=0;i<mang_so.length; i++){
+				sum+=mang_so[i];	
+			}
+			sum=document.getElementById('sum').innerHTML=sum;
+
+		}
+	</script>
+</body>
+</html>
