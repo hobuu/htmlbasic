@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VALIDATE FORM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		#box{
+			background-color: gray;
+			width: 1200px;
+			height: 800px;
+			margin: 50px auto;
+			border-radius: 20px;
+			text-align: center;
+			font-size: 30px;
+		}
+		button{
+			height: 50px;
+			width: 200px;
+			font-size: 20px;
+			border-radius: 10px;
+			background-color: green;
+		}
+		tr{
+			 height: 60px;
+		}
+		input[type=text]{
+			width: 450px;
+			padding: 10px 15px;
+			margin: 8px 0;
+			border-radius: 10px;
+		}
+		input[type=password]{
+			width: 450px;
+			padding: 10px 15px;
+			margin: 8px 0;
+			border-radius: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+		<h1>Validate form</h1>
+			<form>
+				<table border="0" width="1200px">
+				<tr>
+					<td width="250px">Họ tên:</td>
+					<td width="550px"><input type="text" id="name" size="50"></td>
+					<td><span id='name_checked'></span></td>
+				</tr>
+				<tr><td>Giới tính:</td>
+					<td><input type="radio" name="gender" value="Nam">Nam
+					<input type="radio" name="gender" value="Nu">Nữ</td>
+					<td><span id='gender_checked'></span></td>
+				</tr>
+				<tr><td>Địa chỉ:</td>
+					<td><input type="text" id="address" size="50"></td>
+					<td><span id="address_checked"></span></td>
+				</tr>
+				<tr><td>Email:</td>
+					<td><input type="text" id="email" size="50"></td>
+					<td><span id="email_checked"></span></td>
+				</tr>
+				<tr><td>Password:</td>
+					<td><input type="password" id="password" size="50"></td>
+					<td><span id="password_checked"></span></td>
+				</tr>
+				<tr><td>Nhập lại password:</td>
+					<td><input type="password" id="retype_password" size="50"></td>
+					<td><span id="retype_password_checked"></span></td>
+				</tr>
+				<tr><td colspan="3"><i>Mật khẩu phải từ 6-24 kí tự gồm cả số, chữ thường, chữ in hoa và các kí tự đặc biệt</i></td></tr>
+				<tr><td>Sở thích:</td>
+				<td><input type="checkbox" id="hobbies" value="xem phim">Xem phim
+				<br>
+				<input type="checkbox" id="hobbies" value="nghe nhac">Nghe nhạc
+				<br>
+				<input type="checkbox" id="hobbies" value="doc truyen">Đọc truyện
+				<br>
+				<input type="checkbox" id="hobbies" value="choi game">Chơi game
+				<br> 
+				<input type="checkbox" id="hobbies" value="">Khác:..<input type="text" id="hobbies">
+				<p id="hobbies_checked"></p></td>
+			</table>
+				<button type="submit" id="btn" onclick="return check()">Kiểm tra thông tin</button>
+			</form>
+	</div>
+
+			<script type="text/javascript">
+			function check(){
+				let error_flag = false;
+
+				//check name
+				let name = document.getElementById('name').value;
+				if (name.length==0){
+					document.getElementById('name_checked').innerHTML='Tên không được để trống'
+					error_flag = true;
+				}
+				else{
+					let name_regex = /^(?:[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-záàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệóòỏõọôốồổỗộơớờởỡợíìỉĩịúùủũụưứừửữựýỳỷỹỵđ]{0,6}(?:(?: [A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-záàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệóòỏõọôốồổỗộơớờởỡợíìỉĩịúùủũụưứừửữựýỳỷỹỵđ]{0,6}){0,8}))$/
+					if (name_regex.test(name)){
+						document.getElementById('name_checked').innerHTML=' '
+						error_flag = false;
+					}
+					else{
+						document.getElementById('name_checked').innerHTML='Tên không hợp lệ';
+						error_flag = true;
+					}
+				}
+
+				//check gender
+				let gender = document.getElementsByName('gender');
+				let gender_check = false;
+				for (i=0;i< gender.length;i++){
+					if (gender[i].checked){
+						gender_check = true;
+					}
+				}
+				if (gender_check == false){
+					document.getElementById('gender_checked').innerHTML='Chọn giới tính'
+				}
+					else{
+						document.getElementById('gender_checked').innerHTML=' ';
+					}
+
+				//check address
+				let address = document.getElementById('address').value;
+				if (address.length == 0){
+					document.getElementById('address_checked').innerHTML='Nhập địa chỉ'
+					error_flag = true;
+				}
+				else
+					{
+						address_regex = /^(?:(?:[1-9][0-9]*)(?: [A-Z][a-z]*)*)$/;
+						if (address_regex.test(address)){
+							document.getElementById('address_checked').innerHTML=' ';
+						}
+						else{
+							document.getElementById('address_checked').innerHTML='Địa chỉ không hợp lệ';
+						error_flag = true;
+						}
+					}
+
+				//check email
+				let email = document.getElementById('email').value;
+				if (email.length == 0){
+					document.getElementById('email_checked').innerHTML='Nhập email';
+					error_flag = true;
+
+
+				}
+				else{
+					let email_regex = /^([a-zA-Z0-9_.]{1,}\@[a-zA-Z]{1,}\.[a-zA-Z]{1,})$/;
+					if (email_regex.test(email)){
+						document.getElementById('email_checked').innerHTML=' ';
+					}
+					else{
+						document.getElementById('email_checked').innerHTML='Email không hợp lệ';
+						error_flag = true;
+					}
+
+				}
+
+				//check password
+				let password = document.getElementById('password').value;
+				if (password.length == 0){
+					document.getElementById('password_checked').innerHTML='Nhập mật khẩu';
+					error_flag = true;
+				}
+				else{
+					let pd_regex = /^[a-zA-Z0-9!@#$%^&*()_+]{6,24}$/;
+					if (pd_regex.test(password)){
+						document.getElementById('password_checked').innerHTML=' ';
+					}
+					else{
+						document.getElementById('password_checked').innerHTML='Mật khẩu không hợp lệ';
+						error_flag = true;
+					}
+				}
+
+				//check retype password
+				let retype_password = document.getElementById('retype_password').value;
+				if (password.length != retype_password.length){
+					document.getElementById('retype_password_checked').innerHTML='Mật khẩu không giống nhau'
+					error_flag = true;
+				}
+				else{
+					if (password != retype_password){
+						document.getElementById('retype_password_checked').innerHTML='Mật khẩu không giống nhau'
+						error_flag = true;
+					}
+					else{
+						document.getElementById('retype_password_checked').innerHTML=' '
+					}
+				}
+				console.log(password == retype_password);
+				//check hobbies
+				if (hobbies.checked){
+					hobbies = document.getElementById('hobbies').value;
+				}
+				if (hobbies.length == 0){
+					document.getElementById('hobbies_checked').innerHTML='Chọn ít nhất 1'
+					error_flag = true;
+				}
+
+
+				if (error_flag){
+					return false;
+				}
+			}
+			</script>
+</body>
+</html>
